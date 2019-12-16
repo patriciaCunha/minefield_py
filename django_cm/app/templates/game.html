@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h1>Nova Jogada</h1>
+                <form method="POST" class="post-form">{% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="save btn btn-default">Jogar</button>
+                </form>
+
+                <div class="box-body">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>Linha</th>
+                            <th>Coluna</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for jogada in jogadas %}
+                            <tr>
+                                <td>{{ jogada.linha }}</td>
+                                <td>{{ jogada.coluna }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                {{ table }}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

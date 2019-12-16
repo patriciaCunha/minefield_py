@@ -1,0 +1,4 @@
+numpy==1.15.1
+rpyc
+zmq
+django==2.2
